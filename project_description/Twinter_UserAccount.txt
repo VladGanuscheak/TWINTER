@@ -1,0 +1,85 @@
+@startuml
+
+title Twinter's User Account - Class Diagram
+
+Enum Status {
+    #ONLINE
+    #OFFLINE
+}
+
+class User {
+  -String NickName
+  -int status
+  -int NrFollowers
+  -int NrFollowing
+  -photo UPhoto
+  -photo HeaderPhoto
+  -BIO description
+  __
+  +User(String NickName)
+  +void setUPhoto()
+  +void setHeaderPhoto()
+  +void setBIO(param p...)
+  +void setNickName(String newNickName)
+  +void setNrFollowers(int newNrFollowers)
+  +void setNrFollowing(int newNrFollowing)
+  +String getNickName()
+  +bool getStatus()
+  +getNrFollowers()
+  +getNrFollowing()
+  +getBIO()
+  ..
+  Special functionality:
+  ..
+  +void DoTwint()
+  +void ReTwint()
+  +void Search()
+  +void Modify()
+}
+
+Status <|-- User
+
+class BIO {
+    -Image Background
+    -String Location
+    -String Website
+    -Birthday birthday
+    +BIO(param p...)
+    +void setLocation()
+    +void setWebsite()
+    +void setBirthday()
+    +void setBackground()
+    +Birthday getBirthday()
+    +String getWebsite()
+    +String getLocation()
+    +Image getBackground()
+}
+
+class Birthday {
+    -int DD
+    -int MM
+    -int YYYY
+    -int privacy
+    +void setDD(int newDD)
+    +void setMM(int newMM)
+    +void setYYYY(int newYYYY)
+    +void setPrivace(int category)
+    +int getDD()
+    +int getMM()
+    +int getYYYY()
+    +int getPrivacy()
+}
+
+Enum PrivacyConsts {
+    #final int Public
+    #final int UserFollowers
+    #final int FollowingUsers
+    #final int EachOtherFollowing
+    #final int OnlyUser
+}
+
+User *-- BIO
+BIO *-- Birthday
+PrivacyConsts <|-- Birthday
+
+@enduml

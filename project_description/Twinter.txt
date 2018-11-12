@@ -1,0 +1,45 @@
+@startuml
+
+title Twinter - Class Diagram
+
+class Twint {
+    -String msg
+    -String Location
+    -Media media
+    -Poll poll
+    +void setMsg(String newMsg)
+    +void setLocation(String newLocation)
+    +void setMedia()
+    +void setPoll()
+    +String getMsg()
+    +String getLocation()
+    +Media getMedia()
+    +Poll getPoll()
+}
+
+class Media {
+    #Photo photo
+    #Video video
+    #GIF gif
+}
+
+class Poll {
+    -int Nvariants
+    -int duration
+    -Stats stats
+    +Poll(variants, duration)
+    +int getNVariants()
+    +int getDuration()
+    +Stats getStats()
+}
+
+class Stats {
+    #int* results
+    #String* variant
+}
+
+Twint *-- Media
+Twint *-- Poll
+Poll *-- Stats
+
+@enduml
