@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.Entity; // DbContext
+
+namespace app_TWINTER.Models
+{
+    public class twinterContext : DbContext
+    {
+        public DbSet<BIO> BIOs { get; set; }
+
+        public DbSet<media> medias { get; set; }
+
+        public DbSet<poll> polls { get; set; }
+
+        public DbSet<Stats> stats { get; set; }
+
+        public DbSet<Trandings> trandings { get; set; }
+
+        public DbSet<Twint> twints { get; set; }
+
+        public DbSet<User> users { get; set; }
+
+        public DbSet<UserBIO> userBIOs { get; set; }
+    }
+
+    public class twinterDbInitializer : DropCreateDatabaseAlways<twinterContext>
+    {
+        protected override void Seed(twinterContext db)
+        {
+            db.users.Add(new User { User1 = "Admin" });
+            db.users.Add(new User { User1 = "Vlad Ganusceac" });
+            db.users.Add(new User { User1 = "Timbalist Ana" });
+
+            db.twints.Add(new Twint { msg = "Wellcome to TWINTER #Welcome #Twinter #Authors #Ganusceac #Timbalist", Location = "Chisinau" });
+            db.twints.Add(new Twint { msg = "TIDPP exam is right now #TIDPP #EXAM #presentation #Gavrilita #professor" });
+
+            db.BIOs.Add(new BIO { Location = "Chisinau", Website = "Something.com", DD = 09, MM = 06, YYYY = 1997, privacy = null });
+
+            db.userBIOs.Add(new UserBIO { User_Id = 1, BIO_Id = 1 });
+
+            db.trandings.Add(new Trandings { Twint_Id = 1, HashTag = "Welcome" });
+            db.trandings.Add(new Trandings { Twint_Id = 1, HashTag = "Twinter" });
+            db.trandings.Add(new Trandings { Twint_Id = 1, HashTag = "Authors" });
+            db.trandings.Add(new Trandings { Twint_Id = 1, HashTag = "Ganusceac" });
+            db.trandings.Add(new Trandings { Twint_Id = 1, HashTag = "Timbalist" });
+            db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "TIDPP" });
+            db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "EXAM" });
+            db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "presentation" });
+            db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "Gavrilita" });
+            db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "professor" });
+
+
+            base.Seed(db);
+        }
+    }
+}

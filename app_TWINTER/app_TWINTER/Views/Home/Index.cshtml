@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "TWINTER";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TRANDING RIGHT NOW</title>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Welcome!!!</h3>
+            <table>
+                <tr>
+                    <th>TRANDING RIGHT NOW!!!</th>
+                </tr>
+                @foreach (var tr in ViewBag.trandings)
+                {
+                    <tr>
+                        <td>@tr.HashTag</td>
+                    </tr>
+                }
+                </tr>
+            </table>
+    </div>
+</body>
+</html>
