@@ -26,7 +26,7 @@ namespace app_TWINTER.Controllers
             return View();
         }
 
-        public ActionResult Account(int ID)
+        /*public ActionResult Account(int ID)
         {
             int BIO_ID = -1;
             using (var sqlConnection1 = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=MyDB;Trusted_Connection=True;MultipleActiveResultSets=true"))
@@ -74,6 +74,6 @@ namespace app_TWINTER.Controllers
 
             }
             return View();
-        }
+        }*/
     }
 }
