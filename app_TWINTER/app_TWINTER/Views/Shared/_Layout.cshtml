@@ -16,6 +16,38 @@
 </head>
 <body background="~/Content/Images/GeneralBackground5.jpg">
 
+    <!-- Navbar-->
+
+    <nav class="navbar navbar-light" style="background-color: #E8F0F0;">
+        <!-- Navbar content -->
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">OPTIONS</a>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="~/Views/Home/Index.cshtml">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Views/Account/Index.cshtml">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Controllers/LogInController.cs">LogIn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Controllers/SignUpController.cs">SignUp</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                Navbar text with an inline element
+            </span>
+        </div>
+
+    </nav>
+
+
     <!-- Carousel-->
 
     <div class="container">

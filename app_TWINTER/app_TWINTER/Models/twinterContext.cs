@@ -29,9 +29,9 @@ namespace app_TWINTER.Models
     {
         protected override void Seed(twinterContext db)
         {
-            db.users.Add(new User { User1 = "Admin" });
-            db.users.Add(new User { User1 = "Vlad Ganusceac" });
-            db.users.Add(new User { User1 = "Timbalist Ana" });
+            db.users.Add(new User { User1 = "Admin", password = "Lol97NoPassword", email = "noemail@gmil.com" });
+            db.users.Add(new User { User1 = "Vlad Ganusceac", password = "97twinter19", email = "vlad.ganuscheak@gmail.com" });
+            db.users.Add(new User { User1 = "Timbalist Ana", password = "1234567890Ab", email = "ana.timbalist@gmail.com" });
 
             db.twints.Add(new Twint { msg = "Wellcome to TWINTER #Welcome #Twinter #Authors #Ganusceac #Timbalist", Location = "Chisinau" });
             db.twints.Add(new Twint { msg = "TIDPP exam is right now #TIDPP #EXAM #presentation #Gavrilita #professor" });

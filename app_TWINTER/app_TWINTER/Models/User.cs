@@ -16,5 +16,9 @@ namespace app_TWINTER.Models
         public byte[] UPhoto { get; set; }
 
         public byte[] HeaderPhoto { get; set; }
+
+        public string password { get; set; }
+
+        public string email { get; set; }
     }
 }
