@@ -31,18 +31,20 @@
 <body>
     <div>
         <h3>Welcome!!!</h3>
-            <table>
+        <table>
+            <tr>
+                <th>TRANDING RIGHT NOW!!!</th>
+            </tr>
+            @foreach (var tr in ViewBag.trandings)
+            {
                 <tr>
-                    <th>TRANDING RIGHT NOW!!!</th>
+                    <td>@tr.HashTag</td>
                 </tr>
-                @foreach (var tr in ViewBag.trandings)
-                {
-                    <tr>
-                        <td>@tr.HashTag</td>
-                    </tr>
-                }
-                </tr>
-            </table>
+            }
+            </tr>
+        </table>
     </div>
+    @{ViewBag.Id = 1; }
+    <a href="~/Views/Account/Index.cshtml">My Account</a>
 </body>
 </html>

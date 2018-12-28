@@ -151,6 +151,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Controllers\LogOutController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +260,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
+    <Folder Include="Views\LogIn\" />
+    <Folder Include="Views\LogOut\" />
+    <Folder Include="Views\SignUp\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
