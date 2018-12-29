@@ -14,7 +14,7 @@ namespace app_TWINTER.Controllers
     public class AccountController : Controller
     {
 
-        twinterContext db = new twinterContext();
+        
 
         // GET: Account
         /*public ActionResult Index()
@@ -22,7 +22,7 @@ namespace app_TWINTER.Controllers
             return View();
         }*/
 
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult Account(int ID)
         {
             int BIO_ID = -1;
@@ -71,11 +71,76 @@ namespace app_TWINTER.Controllers
 
             }
             return View();
+        }*/
+
+
+        public ActionResult Index()
+        {
+            using (twinterContext db = new twinterContext())
+            {
+                return View(db.users.ToList());
+            }
         }
 
-        public ActionResult Account()
+        public ActionResult Register()
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Register(User account)
+        {
+            if (ModelState.IsValid)
+            {
+                using (twinterContext db = new twinterContext())
+                {
+                    db.users.Add(account);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+                ViewBag.Message = account.User1 + " has successfully registered!";
+            }
+            return View();
+        }
+
+        // Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
+            using (twinterContext db = new twinterContext())
+            {
+                var usr = db.users.Where(u => u.email == user.email && u.password == user.password).FirstOrDefault();
+                if (usr != null)
+                {
+                    Session["email"] = usr.email.ToString();
+                    Session["password"] = usr.password.ToString();
+                    return RedirectToAction("LoggedIn");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "email and/or Password are wrong!");
+                }
+            }
+            return View();
+        }
+
+        public ActionResult LoggedIn()
+        {
+            if (Session["Id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
+
     }
 }
