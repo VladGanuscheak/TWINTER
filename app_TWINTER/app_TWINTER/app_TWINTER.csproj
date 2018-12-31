@@ -151,8 +151,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LogOutController.cs" />
-    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,15 +256,14 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\LogIn\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\LoggedIn.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
-    <Folder Include="Views\LogOut\" />
     <Folder Include="Views\SignUp\" />
   </ItemGroup>
   <ItemGroup>

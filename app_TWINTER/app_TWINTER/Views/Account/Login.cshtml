@@ -1,110 +1,46 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@model app_TWINTER.Models.User
+
+@{
     ViewBag.Title = "Login";
 }
 
-@model app_TWINTER.Models.User
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Mvc Simple Login Application Demo</legend>
 
-@using System.Web.Optimization
-@using app_TWINTER.Models
-
-<div class="container-center animated slideInDown">
-    <div class="view-header">
-        <div class="header-icon">
-            <i class="pe page-header-icon pe-7s-unlock"></i>
-        </div>
-        <div class="header-title">
-            <h3>Login process</h3>
-            <small>
-                Please enter your credentials to login in the system.
-            </small>
-        </div>
-    </div>
-
-    <div class="panel panel-filled">
-        <div class="panel-body">
-            @Html.ValidationSummary(true)
-            @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @id = "LoginForm" }))
-            {
-                @Html.AntiForgeryToken()
-                <div class="form-group">
-                    @Html.LabelFor(m => m.email, new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.email, new
-                    {
-                        placeholder = "example@gmail.com",
-                        title = "Please enter you username",
-                        value = "",
-                        name = "username",
-                        id = "username",
-                        @class = "form-control"
-                    })
-                    <span class="help-block small">Your unique username to app</span>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.password, new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.password, new
-                    {
-                        @class = "form-control",
-                        type = "password",
-                        title = "Please enter your password",
-                        placeholder = "******",
-                        value = "",
-                        name = "password",
-                        id = "password"
-                    })
-                    <span class="help-block small">Your password is strong</span>
-                </div>
-                <div>
-                    @{
-                        User user = null;
-                        using (twinterContext db = new twinterContext())
-                        {
-                            
-                        }
-                        if (user != null)
-                        {
-
-                        }
-                    }
-                    <button class="btn btn-accent">Login</button>
-                    <a class="btn btn-default" href="register.html">Register</a>
-                </div>
-            }
-        </div>
-    </div>
-
-</div>
-
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/validation/js")
-
-    <script type="text/javascript">
-        $(function () {
-
-            $("#LoginForm").validate({
-                rules: {
-                    Username: {
-                        required: true
-                    },
-                    Password: {
-                        required: true
-                    }
-                },
-                submitHandler: function (form) {
-                    form.submit();
-                },
-                errorPlacement: function (error, element) {
-                    $(element)
-                        .closest("form")
-                        .find("label[for='" + element.attr("id") + "']")
-                        .append(error);
-                },
-                errorElement: "span"
-            });
-        });
-
-
-    </script>
-}
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.email)</td>
+                <td>@Html.TextBoxFor(a => a.email)</td>
+                <td>@Html.ValidationMessageFor(a => a.email)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.password)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.password)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.password)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}  

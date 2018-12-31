@@ -14,7 +14,7 @@ namespace app_TWINTER.Controllers
     public class AccountController : Controller
     {
 
-        
+
 
         // GET: Account
         /*public ActionResult Index()
@@ -74,7 +74,7 @@ namespace app_TWINTER.Controllers
         }*/
 
 
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             using (twinterContext db = new twinterContext())
             {
@@ -139,8 +139,46 @@ namespace app_TWINTER.Controllers
             {
                 return RedirectToAction("Login");
             }
+        }*/
+
+
+
+        public ActionResult Login()
+        {
+            return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(User input)
+        {
+            if (ModelState.IsValid)
+            {
+                using (twinterContext db = new twinterContext())
+                {
+                    var obj = db.users.Where(a => a.email.Equals(input.email) && a.password.Equals(input.password)).FirstOrDefault();
+                    if (obj != null)
+                    {
+                        Session["email"] = obj.email.ToString();
+                        Session["password"] = obj.password.ToString();
+                        return RedirectToAction("LoggedIn");
+                    }
+                }
+            }
+            return View(input);
+        }
+
+        public ActionResult LoggedIn()
+        {
+            if (Session["email"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
 
     }
 }

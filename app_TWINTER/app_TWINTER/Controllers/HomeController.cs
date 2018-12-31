@@ -10,6 +10,29 @@ using System.Data;
 
 namespace app_TWINTER.Controllers
 {
+    public class ProcessStatus
+    {
+        protected const char NEED_TO_DO = '0';
+        protected const char IN_PROCESS = '1';
+        protected const char DONE = '2';
+    }
+    public class Task : ProcessStatus
+    {
+        private String msg;
+        private char state;
+        Task()
+        {
+            msg = "";
+            state = NEED_TO_DO;
+        }
+        public Task(String msg, char state = NEED_TO_DO)
+        {
+            this.msg = msg;
+            this.state = state;
+        }
+        public String getMsg() { return msg; }
+        public char getState() { return state; }
+    }
     public class HomeController : Controller
     {
         twinterContext db = new twinterContext();
@@ -26,54 +49,24 @@ namespace app_TWINTER.Controllers
             return View();
         }
 
-        /*public ActionResult Account(int ID)
+        public ActionResult About()
         {
-            int BIO_ID = -1;
-            using (var sqlConnection1 = new SqlConnection("Server=(localdb)\\mssqllocaldb;Database=MyDB;Trusted_Connection=True;MultipleActiveResultSets=true"))
-            {
-                using (var cmd = new SqlCommand()
-                {
-                    CommandText = "SELECT BIO_Id FROM dbo.UserBIO WHERE User_Id = @id",
-                    CommandType = CommandType.Text,
-                    Connection = sqlConnection1
-                })
-                {
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = ID;
-                    sqlConnection1.Open();
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            BIO_ID = Int32.Parse(reader[0].ToString());
-                            // get the rest of the columns you need the same way
-                        }
-                    }
-                }
-
-                using (var cmd = new SqlCommand()
-                {
-                    CommandText = "SELECT * FROM dbo.BIO WHERE BIO_Id = @id",
-                    CommandType = CommandType.Text,
-                    Connection = sqlConnection1
-                })
-                {
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = BIO_ID;
-                    sqlConnection1.Open();
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            ViewBag.BIO = Int32.Parse(reader[0].ToString());
-                            // get the rest of the columns you need the same way
-                        }
-                    }
-                }
-
-
-            }
+            ViewBag.WorkProcess = new List<Task>() {
+                new Task("User registration", '1'),
+                new Task("User login/logout", '1'),
+                new Task("User should be able to tweet"),
+                new Task("User should be able to follow other users"),
+                new Task("User should see tweets from users he followed"),
+            };
+            ViewBag.Optional = new List<Task>() {
+                new Task("User should be able to like tweets"),
+                new Task("User should be able to retweet a tweet from other users"),
+                new Task("User should receive an email notification when a person likes/retweets his tweets"),
+                new Task("User should be able to bookmark/save tweets and there should be a dedicated page where user can see them"),
+                new Task("Any other feature you'd like to add"),
+                new Task("Testing", '1')
+            };
             return View();
-        }*/
+        }
     }
 }

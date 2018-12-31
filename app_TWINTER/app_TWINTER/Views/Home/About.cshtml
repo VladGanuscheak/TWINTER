@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<h2>TWINTER application...</h2>
+
+<body>
+    <p>This is the Twitter's clone... </p>
+    <p>It should have basic Twitter's options:</p>
+    <h4 align="left">Main Tasks</h4>
+    @foreach (var item in ViewBag.WorkProcess)
+    {
+        <div align="left">
+            <p>@item.getMsg()</p>
+            @switch (item.getState())
+            {
+                case '0':
+                    <img src="~/Content/Process/need_to_do.jpg" alt="NEED_TO_DO">
+                    break;
+                case '1':
+                    <img src="~/Content/Process/in_process.jpg" alt="IN_PROCESS">
+                    break;
+                case '2':
+                    <img src="~/Content/Process/done.jpg" alt="DONE">
+                    break;
+            }
+        </div>
+    }
+
+    <h4 align="right">Optional Tasks</h4>
+    @foreach (var item in ViewBag.Optional)
+    {
+        <div align="right">
+            <p>@item.getMsg()</p>
+            @switch (item.getState())
+            {
+                case '0':
+                    <img src="~/Content/Process/need_to_do.jpg" alt="NEED_TO_DO">
+                    break;
+                case '1':
+                    <img src="~/Content/Process/in_process.jpg" alt="IN_PROCESS">
+                    break;
+                case '2':
+                    <img src="~/Content/Process/done.jpg" alt="DONE">
+                    break;
+            }
+        </div>
+    }
+</body>
+

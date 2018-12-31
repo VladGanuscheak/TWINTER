@@ -1,7 +1,12 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "LoggedIn";
 }
 
-<h2>LoggedIn</h2>
+<fieldset>
+    <legend> User DashBoard </legend>
 
+    @if (Session["UserName"] != null)
+    {
+        <text>Welcome @Session["email"].ToString() </text>
+    } 
+    </fieldset>  
