@@ -3,10 +3,13 @@
 }
 
 <fieldset>
-    <legend> User DashBoard </legend>
-
-    @if (Session["UserName"] != null)
+    @if (Session["user"] != null)
     {
-        <text>Welcome @Session["email"].ToString() </text>
-    } 
-    </fieldset>  
+        <legend>You are loged In and may use all site's functionality!!!</legend>
+        <text>Welcome @Session["user"].ToString() </text>
+    }
+    else
+    {
+        @Url.Action("Account/Login");
+    }
+</fieldset>  

@@ -159,6 +159,7 @@ namespace app_TWINTER.Controllers
                     var obj = db.users.Where(a => a.email.Equals(input.email) && a.password.Equals(input.password)).FirstOrDefault();
                     if (obj != null)
                     {
+                        Session["user"] = obj.User1.ToString();
                         Session["email"] = obj.email.ToString();
                         Session["password"] = obj.password.ToString();
                         return RedirectToAction("LoggedIn");
@@ -170,7 +171,7 @@ namespace app_TWINTER.Controllers
 
         public ActionResult LoggedIn()
         {
-            if (Session["email"] != null)
+            if (Session["user"] != null)
             {
                 return View();
             }
