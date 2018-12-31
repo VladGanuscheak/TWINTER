@@ -1,0 +1,19 @@
+﻿/* background color of navabar (custom one) */
+.navbar-custom {
+    background-color: #CDE9E9;
+}
+    /* Brand and text color */
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: rgba(104, 90, 86,.8);
+    }
+    /* link color */
+    .navbar-custom .navbar-nav .nav-link {
+        color: rgba(50, 127, 31,.5);
+    }
+    /* active or hovered links */
+    .navbar-custom .nav-item.active .nav-link,
+    .navbar-custom .nav-item:focus .nav-link,
+    .navbar-custom .nav-item:hover .nav-link {
+        color: #0A1756;
+    }
