@@ -1,4 +1,4 @@
-﻿
+﻿@using app_TWINTER.Global_Constraints
 @{
     ViewBag.Title = "About";
 }
@@ -11,17 +11,18 @@
     <h4 align="left">Main Tasks</h4>
     @foreach (var item in ViewBag.WorkProcess)
     {
+        Constants process = new Constants();
         <div align="left">
             <p>@item.getMsg()</p>
             @switch (item.getState())
             {
-                case '0':
+                case Constants.NEED_TO_DO:
                     <img src="~/Content/Process/need_to_do.jpg" alt="NEED_TO_DO">
                     break;
-                case '1':
+                case Constants.IN_PROCESS:
                     <img src="~/Content/Process/in_process.jpg" alt="IN_PROCESS">
                     break;
-                case '2':
+                case Constants.DONE:
                     <img src="~/Content/Process/done.jpg" alt="DONE">
                     break;
             }

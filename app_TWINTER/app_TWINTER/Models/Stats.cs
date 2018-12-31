@@ -19,6 +19,13 @@ namespace app_TWINTER.Models
 
         public int result { get; set; }
 
+        [Required]
+        [StringLength(100, MinimumLength = 1)]
         public string variant { get; set; }
+
+        public Stats()
+        {
+            result = 0; // Initially ZERO
+        }
     }
 }

@@ -7,25 +7,21 @@ using app_TWINTER.Models;
 
 using System.Data.SqlClient; // sql
 using System.Data;
+// Constraints:
+using app_TWINTER.Global_Constraints;
 
 namespace app_TWINTER.Controllers
 {
-    public class ProcessStatus
-    {
-        protected const char NEED_TO_DO = '0';
-        protected const char IN_PROCESS = '1';
-        protected const char DONE = '2';
-    }
-    public class Task : ProcessStatus
+    public class Task
     {
         private String msg;
         private char state;
         Task()
         {
             msg = "";
-            state = NEED_TO_DO;
+            state = Constants.NEED_TO_DO;
         }
-        public Task(String msg, char state = NEED_TO_DO)
+        public Task(String msg, char state = Constants.NEED_TO_DO)
         {
             this.msg = msg;
             this.state = state;
@@ -52,8 +48,8 @@ namespace app_TWINTER.Controllers
         public ActionResult About()
         {
             ViewBag.WorkProcess = new List<Task>() {
-                new Task("User registration", '1'),
-                new Task("User login/logout", '1'),
+                new Task("User registration", Constants.IN_PROCESS),
+                new Task("User login/logout", Constants.IN_PROCESS),
                 new Task("User should be able to tweet"),
                 new Task("User should be able to follow other users"),
                 new Task("User should see tweets from users he followed"),
@@ -64,7 +60,7 @@ namespace app_TWINTER.Controllers
                 new Task("User should receive an email notification when a person likes/retweets his tweets"),
                 new Task("User should be able to bookmark/save tweets and there should be a dedicated page where user can see them"),
                 new Task("Any other feature you'd like to add"),
-                new Task("Testing", '1')
+                new Task("Testing", Constants.IN_PROCESS)
             };
             return View();
         }

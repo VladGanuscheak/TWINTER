@@ -154,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Global_Constraints\Constraints.cs" />
     <Compile Include="Models\BIO.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
@@ -161,7 +162,6 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\media.cs" />
-    <Compile Include="Models\Password.cs" />
     <Compile Include="Models\PetaPoco.cs" />
     <Compile Include="Models\poll.cs" />
     <Compile Include="Models\Stats.cs" />
@@ -170,6 +170,7 @@
     <Compile Include="Models\twinterContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserBIO.cs" />
+    <Compile Include="Models\UserTwint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
