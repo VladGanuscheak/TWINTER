@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/MainAdminLayout.cshtml";
+}
+
+<h2>UserList</h2>
+<table align="center">
+    <tr>
+        <td>ID</td>
+        <td>User</td>
+        <td>password</td>
+        <td>email</td>
+        <td>Role</td>
+    </tr>
+    @foreach(var item in ViewBag.USERS)
+    {
+        <tr>
+            <td>@item.User_Id</td>
+            <td>@item.User1</td>
+            <td>@item.password</td>
+            <td>@item.email</td>
+            <td>@item.Role</td>
+        </tr>
+    }
+</table>

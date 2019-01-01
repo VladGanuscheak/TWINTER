@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity; // DbContext
 using app_TWINTER.Global_Constraints; // Constraints;
+using System.Data;
 
 namespace app_TWINTER.Models
 {
@@ -26,16 +27,26 @@ namespace app_TWINTER.Models
         public DbSet<UserBIO> userBIOs { get; set; }
 
         public DbSet<UserTwint> UserTwints { get; set; }
+
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Trandings>()
+                .HasOne(p => p.Twint)
+                .WithMany(b => b.Trandings)
+                .HasForeignKey(p => p.Twint_Id)
+                .HasConstraintName("FK_Trandings_Twint");
+        }*/
+
     }
 
     public class twinterDbInitializer : DropCreateDatabaseAlways<twinterContext>
     {
         protected override void Seed(twinterContext db)
         {
-            Constants role = new Constants(); // special
-
-            db.users.Add(new User { User1 = "Admin", password = "Lol97NoPassword", email = "noemail@gmil.com" });
-            db.users.Add(new User { User1 = "Vlad Ganusceac", password = "97twinter19", email = "vlad.ganuscheak@gmail.com" });
+            db.users.Add(new User { User1 = "Main Administrator", password = "TheLawOfThisSite*", email = "vlad.ganuscheak@mail.ru", Role = Constants.main_administrator });
+            db.users.Add(new User { User1 = "Admin", password = "Lol97NoPassword", email = "noemail@gmil.com", Role = Constants.administrator });
+            db.users.Add(new User { User1 = "Moderator", password = "TopModer7777", email = "moder@mail.ru", Role = Constants.moderator });
+            db.users.Add(new User { User1 = "Vlad Ganusceac", password = "97twinter19*", email = "vlad.ganuscheak@gmail.com" });
             db.users.Add(new User { User1 = "Timbalist Ana", password = "1234567890Ab", email = "ana.timbalist@gmail.com" });
 
             db.twints.Add(new Twint { msg = "Wellcome to TWINTER #Welcome #Twinter #Authors #Ganusceac #Timbalist", Location = "Chisinau" });
@@ -46,7 +57,7 @@ namespace app_TWINTER.Models
 
             db.BIOs.Add(new BIO { Location = "Chisinau", Website = "Something.com" });
 
-            db.userBIOs.Add(new UserBIO { User_Id = 1, BIO_Id = 1 });
+            db.userBIOs.Add(new UserBIO { User_Id = 1, BIO_Id = 1});
 
             db.trandings.Add(new Trandings { Twint_Id = 1, HashTag = "Welcome" });
             db.trandings.Add(new Trandings { Twint_Id = 1, HashTag = "Twinter" });

@@ -22,13 +22,13 @@ namespace app_TWINTER.Models
         [StringLength(250, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string Location { get; set; }
 
-        public int media_Id { get; set; }
+        public Nullable<int> media_Id { get; set; }
 
-        public int poll_Id { get; set; }
+        public Nullable<int> poll_Id { get; set; }
 
         public Twint()
         {
-            msg = Location = "";
+            msg = Location = "-";
         }
     }
 }

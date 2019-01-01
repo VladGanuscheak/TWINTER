@@ -24,8 +24,7 @@ namespace app_TWINTER.Models
         public byte[] HeaderPhoto { get; set; }
 
         [Required]
-        [RegularExpression(@"^[a-zA-Z0-9!@#$%&*<>''-'\s]{12, 40}$", ErrorMessage = Constants.REGEX_ERROR)]
-        [StringLength(50, MinimumLength = 12, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
+        [StringLength(50, MinimumLength = 12, ErrorMessage = Constants.WRONG_SIZE)]
         public string password { get; set; }
 
         [Required]

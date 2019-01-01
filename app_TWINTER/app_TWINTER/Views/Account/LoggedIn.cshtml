@@ -1,15 +1,30 @@
-﻿@{
+﻿@using app_TWINTER.Global_Constraints
+@{
     ViewBag.Title = "LoggedIn";
 }
 
 <fieldset>
     @if (Session["user"] != null)
     {
-        <legend>You are loged In and may use all site's functionality!!!</legend>
-        <text>Welcome @Session["user"].ToString() </text>
-    }
-    else
-    {
-        @Url.Action("Account/Login");
-    }
+        switch (Session["role"].ToString()[0])
+        {
+            case Constants.main_administrator:
+                <text>Welcome, Main Administraitor</text>
+                break;
+            case Constants.administrator:
+                <text>Welcome, @Session["user"].ToString()! You have admin prevelegies!!!</text>
+                break;
+            case Constants.moderator:
+                <text>Welcome, @Session["user"].ToString()! You have moderator prevelegies!!!</text>
+                break;
+                default:
+                <legend>You are loged In and may use all site's functionality!!!</legend>
+                <text>Welcome @Session["user"].ToString() </text>
+                break;
+         }
+     }
+     else
+     {
+            @Url.Action("Account/Login");
+     }
 </fieldset>  

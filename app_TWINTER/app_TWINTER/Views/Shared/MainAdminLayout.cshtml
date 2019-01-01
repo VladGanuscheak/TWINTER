@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Links for Carousel-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- Navbar -->
+    <link rel="stylesheet" href="~/Content/MainAdmin.css">
+    <!-- -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Basic Features-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – TIDPP EXAM</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body background="~/Content/Images/GeneralBackground6.jpg">
+
+    <!-- Navbar-->
+
+    <nav class="navbar-custom navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <a class="navbar-brand" href="/">TWINTER application</a>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item"><a href="/MainAdmin/UserList" class="nav-link">User List</a></li>
+                    <li class="nav-item"><a href="/Home/About" class="nav-link">About</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right mr-auto">
+                    <li class="nav-item"><a href="/Account/Login" id="registerLink" class="nav-link">Log In</a></li>
+                    <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Sign Up</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Footer-->
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; All rights reserved. Ganusceac Vlad & Timbalist Ana. @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
