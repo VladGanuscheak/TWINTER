@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/MainAdminLayout.cshtml";
+}
+
+<h2>BIO List</h2>
+<table align="center">
+    <tr>
+        <td>ID</td>
+        <td>Location</td>
+        <td>Website</td>
+        <td>DD:MM:YYYY</td>
+        <td>privacy</td>
+    </tr>
+    @foreach (var item in ViewBag.BIOS)
+    {
+        <tr>
+            <td>@item.BIO_Id</td>
+            <td>@item.Location</td>
+            <td>@item.Website</td>
+            <td>@item.DD + ':' + @item.MM + ':' + @item.YYYY</td>
+            <td>@item.privacy</td>
+        </tr>
+    }
+</table>

@@ -317,6 +317,7 @@
     <Content Include="Views\MainAdmin\Index.cshtml" />
     <Content Include="Views\MainAdmin\UserList.cshtml" />
     <Content Include="Views\Shared\MainAdminLayout.cshtml" />
+    <Content Include="Views\MainAdmin\BIOList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

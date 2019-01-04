@@ -13,6 +13,7 @@ namespace app_TWINTER.Controllers
 {
     public class AccountController : Controller
     {
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
