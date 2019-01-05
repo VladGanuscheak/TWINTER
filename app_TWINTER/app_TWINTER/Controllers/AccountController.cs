@@ -13,8 +13,8 @@ namespace app_TWINTER.Controllers
 {
     public class AccountController : Controller
     {
-        [HttpGet]
-        public ActionResult Login()
+        //[HttpGet]
+        /*public ActionResult Login()
         {
             return View();
         }
@@ -34,7 +34,7 @@ namespace app_TWINTER.Controllers
                         Session["email"] = obj.email.ToString();
                         Session["password"] = obj.password.ToString();
                         Session["role"] = obj.Role.ToString();
-                        return RedirectToAction("LoggedIn");
+                        return RedirectToAction("Index");
                     }
                 }
             }
@@ -49,9 +49,71 @@ namespace app_TWINTER.Controllers
             }
             else
             {
+                return RedirectToAction("Index");
+            }
+        }*/
+
+        //
+        //
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(User input)
+        {
+            if (ModelState.IsValid)
+            {
+                using (twinterContext db = new twinterContext())
+                {
+                    db.users.Add(input);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+                ViewBag.Message = input.User1 + " has been registered successfuly!";
+            }
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(User input)
+        {
+            using (twinterContext db = new twinterContext())
+            {
+                var usr = db.users.Where(u => u.email == input.email && u.password == input.password).FirstOrDefault();
+                if (usr != null)
+                {
+                    Session["UserId"] = usr.User_Id.ToString();
+                    Session["User"] = usr.User1.ToString();
+                    Session["Role"] = usr.Role.ToString();
+                    Session["Email"] = usr.email.ToString();
+                    Session["Password"] = usr.password.ToString();
+                    return RedirectToAction("LoggedIn");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The Email or/and the Password are wrong!");
+                }
+            }
+            return View();
+        }
+
+        public ActionResult LoggedIn()
+        {
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
                 return RedirectToAction("Login");
             }
         }
-
     }
 }

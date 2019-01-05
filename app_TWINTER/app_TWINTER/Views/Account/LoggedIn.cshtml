@@ -6,7 +6,7 @@
 <fieldset>
     @if (Session["user"] != null)
     {
-        switch (Session["role"].ToString()[0])
+        switch (Session["role"])
         {
             case Constants.main_administrator:
                 <text>Welcome, Main Administraitor</text>
