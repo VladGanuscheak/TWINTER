@@ -15,19 +15,19 @@ namespace app_TWINTER.Controllers
     public class Task
     {
         private String msg;
-        private char state;
+        private Int16 state;
         Task()
         {
             msg = "";
             state = Constants.NEED_TO_DO;
         }
-        public Task(String msg, char state = Constants.NEED_TO_DO)
+        public Task(String msg, Int16 state = Constants.NEED_TO_DO)
         {
             this.msg = msg;
             this.state = state;
         }
         public String getMsg() { return msg; }
-        public char getState() { return state; }
+        public Int16 getState() { return state; }
     }
     public class HomeController : Controller
     {

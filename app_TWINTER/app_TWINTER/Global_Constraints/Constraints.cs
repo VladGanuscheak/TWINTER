@@ -5,17 +5,17 @@ using System.Web;
 
 namespace app_TWINTER.Global_Constraints
 {
-    public class Constants
+    public static class Constants
     {
         // URole
-        public const char ordinary_user = '0';
-        public const char moderator = '1';
-        public const char administrator = '2';
-        public const char main_administrator = '3';
+        public const Int16 ordinary_user = 0;
+        public const Int16 moderator = 1;
+        public const Int16 administrator = 2;
+        public const Int16 main_administrator = 3;
         // ProcessStatus
-        public const char NEED_TO_DO = '0';
-        public const char IN_PROCESS = '1';
-        public const char DONE = '2';
+        public const Int16 NEED_TO_DO = 0;
+        public const Int16 IN_PROCESS = 1;
+        public const Int16 DONE = 2;
         // Errors
         public const string TOO_LONG_DESCRIPTION = "Too long description";
         public const string TOO_SHORT_DESCRIPTION = "Too short description";

@@ -35,15 +35,15 @@ tr:nth-child(even) {
     /* Brand and text color */
     .navbar-custom .navbar-brand,
     .navbar-custom .navbar-text {
-        color: rgba(104, 90, 86,.8);
+        color: rgba(245, 227, 11, .3);
     }
     /* link color */
     .navbar-custom .navbar-nav .nav-link {
-        color: rgba(50, 127, 31,.5);
+        color: rgba(7, 248, 244,.5);
     }
     /* active or hovered links */
     .navbar-custom .nav-item.active .nav-link,
     .navbar-custom .nav-item:focus .nav-link,
     .navbar-custom .nav-item:hover .nav-link {
-        color: #0A1756;
+        color: #070BF8;
     }

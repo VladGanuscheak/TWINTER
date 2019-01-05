@@ -27,23 +27,14 @@ namespace app_TWINTER.Models
         public DbSet<UserBIO> userBIOs { get; set; }
 
         public DbSet<UserTwint> UserTwints { get; set; }
-
-        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Trandings>()
-                .HasOne(p => p.Twint)
-                .WithMany(b => b.Trandings)
-                .HasForeignKey(p => p.Twint_Id)
-                .HasConstraintName("FK_Trandings_Twint");
-        }*/
-
     }
+    
 
     public class twinterDbInitializer : DropCreateDatabaseAlways<twinterContext>
     {
         protected override void Seed(twinterContext db)
         {
-            db.users.Add(new User { User1 = "Main Administrator", password = "TheLawOfThisSite*", email = "vlad.ganuscheak@mail.ru", Role = Constants.main_administrator });
+            db.users.Add(new User { User1 = "Main Administrator", password = "TheLawOfThisSite*", email = "vlad.ganuscheak@mail.ru", Role = Constants.main_administrator});
             db.users.Add(new User { User1 = "Admin", password = "Lol97NoPassword", email = "noemail@gmil.com", Role = Constants.administrator });
             db.users.Add(new User { User1 = "Moderator", password = "TopModer7777", email = "moder@mail.ru", Role = Constants.moderator });
             db.users.Add(new User { User1 = "Vlad Ganusceac", password = "97twinter19*", email = "vlad.ganuscheak@gmail.com" });
@@ -70,6 +61,7 @@ namespace app_TWINTER.Models
             db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "Gavrilita" });
             db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "professor" });
 
+            db.SaveChanges();
 
             base.Seed(db);
         }

@@ -306,6 +306,13 @@
     <Content Include="Views\MainAdmin\UserList.cshtml" />
     <Content Include="Views\Shared\MainAdminLayout.cshtml" />
     <Content Include="Views\MainAdmin\BIOList.cshtml" />
+    <Content Include="Views\MainAdmin\MediaList.cshtml" />
+    <Content Include="Views\MainAdmin\PollList.cshtml" />
+    <Content Include="Views\MainAdmin\Stats.cshtml" />
+    <Content Include="Views\MainAdmin\TrandingList.cshtml" />
+    <Content Include="Views\MainAdmin\TwintList.cshtml" />
+    <Content Include="Views\MainAdmin\UserBio.cshtml" />
+    <Content Include="Views\MainAdmin\UserTwint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

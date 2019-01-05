@@ -32,11 +32,12 @@ namespace app_TWINTER.Models
         [StringLength(90, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string email { get; set; }
 
-        public char Role { get; set; }
+        [Required]
+        public Int16 Role { get; set; }
 
         public User()
         {
-            Role = Constants.ordinary_user;  
+            Role = Constants.ordinary_user;
         }
     }
 }
