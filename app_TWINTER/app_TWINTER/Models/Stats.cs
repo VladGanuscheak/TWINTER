@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using app_TWINTER.Global_Constraints; // Constants
 
 namespace app_TWINTER.Models
 {
@@ -19,7 +20,7 @@ namespace app_TWINTER.Models
 
         public int result { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         [StringLength(100, MinimumLength = 1)]
         public string variant { get; set; }
 

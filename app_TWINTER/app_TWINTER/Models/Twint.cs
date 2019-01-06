@@ -14,11 +14,11 @@ namespace app_TWINTER.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Twint_Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         [StringLength(300, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string msg { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         [StringLength(250, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string Location { get; set; }
 

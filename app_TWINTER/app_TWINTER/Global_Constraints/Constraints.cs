@@ -22,6 +22,8 @@ namespace app_TWINTER.Global_Constraints
         public const string WRONG_SIZE = "Wrong size";
         public const string INVALID_EMAIL = "Invalod Email";
         public const string REGEX_ERROR = "There are allowed passwords in rage of (12, 40) and could be used English symbols, digits and [!@#$%&*<>]";
+        public const string REQUIRED_FIELD = "This field is required!!!";
+        public const string PASSWORDS_CONFIRMATION_FAULT = "The Passwords differs! Confirmation Fault!";
     }
 
 }

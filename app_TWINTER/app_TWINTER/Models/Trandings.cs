@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Threading;
+using app_TWINTER.Global_Constraints; // Constants
 
 namespace app_TWINTER.Models
 {
@@ -17,7 +18,7 @@ namespace app_TWINTER.Models
         
         public int Twint_Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         [StringLength(80, MinimumLength = 1)]
         public string HashTag { get; set; }
     }

@@ -16,7 +16,7 @@ namespace app_TWINTER.Models
 
         public Nullable<int> media_type { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         [StringLength(300, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string URL { get; set; }
 

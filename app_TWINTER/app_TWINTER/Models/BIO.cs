@@ -15,11 +15,11 @@ namespace app_TWINTER.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BIO_Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         [StringLength(250, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string Location { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         [StringLength(250, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string Website { get; set; }
 

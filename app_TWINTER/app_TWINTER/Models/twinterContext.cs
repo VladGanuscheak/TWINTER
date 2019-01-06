@@ -60,9 +60,7 @@ namespace app_TWINTER.Models
             db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "presentation" });
             db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "Gavrilita" });
             db.trandings.Add(new Trandings { Twint_Id = 2, HashTag = "professor" });
-
-            db.SaveChanges();
-
+            
             base.Seed(db);
         }
     }
