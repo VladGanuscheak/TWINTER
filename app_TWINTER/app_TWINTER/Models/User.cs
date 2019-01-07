@@ -29,7 +29,7 @@ namespace app_TWINTER.Models
         public string password { get; set; }
 
         [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
-        //[EmailAddress(ErrorMessage = Constants.INVALID_EMAIL)]
+        [EmailAddress(ErrorMessage = Constants.INVALID_EMAIL)]
         [StringLength(90, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         [DataType(DataType.EmailAddress)]
         public string email { get; set; }
@@ -37,10 +37,10 @@ namespace app_TWINTER.Models
         [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         public Int16 Role { get; set; }
 
-        [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
+        /*[Required(ErrorMessage = Constants.REQUIRED_FIELD)]
         [Compare("password", ErrorMessage = Constants.PASSWORDS_CONFIRMATION_FAULT)]
         [DataType(DataType.Password)]
-        public string confirm_password { get; set; }
+        public string confirm_password { get; set; }*/
 
         public User()
         {

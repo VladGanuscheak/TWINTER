@@ -12,23 +12,55 @@
 </head>
 <body>
     <h3>Welcome!!!</h3>
-    <div align="right">
+
+    <div>
+
+        <!-- User's BIO-->
+        <div class="brd" align="left">
+            <p>Website: -</p>
+            <p>Location: -</p>
+            <div class="brd" align="center">
+                <p>Birthday:</p>
+                <p>01:01:1995 (Only You can see this)</p>
+            </div>
+            <a href="~/Home/About">Edit</a>
+        </div>
+
+    </div>
+
+    <!-- User's image (ordinary user)-->
+    <div class="brd" >
+        <img src="~/Content/RolesDefault/user_default.png" alt="ordinary user" align="left" width="100%" height="100%  />
+    </div>
+
+    <hr />
+
+    <div class="brd" align="right">
         <table>
             <tr>
                 <th>TRANDING RIGHT NOW!!!</th>
             </tr>
-            @foreach (var tr in ViewBag.trandings)
-            {
-                <tr>
-                    <td>@tr.HashTag</td>
-                </tr>
+            @{ foreach (var tr in ViewBag.Iterable)
+                  {
+                      <tr>
+                          <td>@tr</td>
+                      </tr>
+                  }
+                /*foreach(var item in ViewBag.Exceptions)
+                {
+                    <tr>
+                        <td>@item</td>
+                    </tr>
+                }*/
             }
         </table>
     </div>
-    @{ViewBag.Id = 1; }
-    <a href="~/Views/Account/Index.cshtml">My Account</a>
 
-    @Html.ActionLink("Account", "Index");
+    <hr />
+
+    <div>
+        <br />End.
+    </div>
 
 </body>
 </html>

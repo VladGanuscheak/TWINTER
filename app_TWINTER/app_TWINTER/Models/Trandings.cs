@@ -19,7 +19,12 @@ namespace app_TWINTER.Models
         public int Twint_Id { get; set; }
 
         [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
-        [StringLength(80, MinimumLength = 1)]
+        [StringLength(80, MinimumLength = 1, ErrorMessage = Constants.TOO_SHORT_DESCRIPTION + " or " + Constants.TOO_LONG_DESCRIPTION)]
         public string HashTag { get; set; }
+
+        public Trandings()
+        {
+            HashTag = "-";
+        }
     }
 }

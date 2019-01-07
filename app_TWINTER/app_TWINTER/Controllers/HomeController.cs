@@ -9,6 +9,7 @@ using System.Data.SqlClient; // sql
 using System.Data;
 // Constraints:
 using app_TWINTER.Global_Constraints;
+using System.Data.Entity.Validation;
 
 namespace app_TWINTER.Controllers
 {
@@ -34,14 +35,36 @@ namespace app_TWINTER.Controllers
         twinterContext db = new twinterContext();
         public ActionResult Index()
         {
-            ViewBag.USERS = db.users;
+            //ViewBag.USERS = db.users;
+            var tmp = new List<string>();
+            List<string> DbExceptions = new List<string>();
+            try
+            {
+                foreach (var item in db.trandings)
+                {
+                    tmp.Add(item.HashTag);
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var errors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in errors.ValidationErrors)
+                    {
+                        // get the error message 
+                        DbExceptions.Add(validationError.ErrorMessage);
+                    }
+                }
+            }
             ViewBag.TRANDINGS = db.trandings;
-            ViewBag.BIO = db.BIOs;
-            ViewBag.media = db.medias;
-            ViewBag.poll = db.polls;
-            ViewBag.Stats = db.stats;
-            ViewBag.Twint = db.twints;
-            ViewBag.UserBIO = db.userBIOs;
+            ViewBag.Iterable = tmp;
+            ViewBag.Exceptions = DbExceptions;
+           //ViewBag.BIO = db.BIOs;
+            //ViewBag.media = db.medias;
+            //ViewBag.poll = db.polls;
+            //ViewBag.Stats = db.stats;
+            //ViewBag.Twint = db.twints;
+            //ViewBag.UserBIO = db.userBIOs;
             return View();
         }
 

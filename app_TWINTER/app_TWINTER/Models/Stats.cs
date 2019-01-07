@@ -21,12 +21,13 @@ namespace app_TWINTER.Models
         public int result { get; set; }
 
         [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
-        [StringLength(100, MinimumLength = 1)]
+        [StringLength(100, MinimumLength = 1, ErrorMessage = Constants.TOO_SHORT_DESCRIPTION + " or " + Constants.TOO_LONG_DESCRIPTION)]
         public string variant { get; set; }
 
         public Stats()
         {
             result = 0; // Initially ZERO
+            variant = "?";
         }
     }
 }

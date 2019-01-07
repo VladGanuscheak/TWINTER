@@ -35,7 +35,7 @@ namespace app_TWINTER.Models
         // values for some attributes in the table
         public BIO()
         {
-            Location = Website = "";
+            Location = Website = "-";
             MM = DD = 1;
             YYYY = 1995;
             privacy = null;
