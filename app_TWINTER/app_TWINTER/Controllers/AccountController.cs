@@ -8,6 +8,8 @@ using app_TWINTER.Models;
 
 using System.Data.SqlClient; // sql
 using System.Data;
+using app_TWINTER.Global_Constraints;
+
 
 namespace app_TWINTER.Controllers
 {
@@ -76,14 +78,29 @@ namespace app_TWINTER.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
+            if (Session["User"] != null)
+            {
+                RedirectToAction("Logout", "Account");
+            }
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            if (Session["User"] != null)
+            {
+                Session["User"] = null;
+            }
             return View();
         }
 
         [HttpPost]
         public ActionResult Login(User input)
         {
+            if (Session["User"] != null) return RedirectToAction("Logout");
             using (twinterContext db = new twinterContext())
             {
                 var usr = db.users.Where(u => u.email == input.email && u.password == input.password).FirstOrDefault();
@@ -94,6 +111,19 @@ namespace app_TWINTER.Controllers
                     Session["Role"] = usr.Role.ToString();
                     Session["Email"] = usr.email.ToString();
                     Session["Password"] = usr.password.ToString();
+
+                    switch(Int16.Parse(Session["Role"].ToString()))
+                    {
+                        case Constants.main_administrator:
+                            return RedirectToAction("Index", "MainAdmin");
+                            break;
+                        case Constants.administrator:
+                            break;
+                        case Constants.moderator:
+                            break;
+                        default:
+                            break;
+                    }
                     return RedirectToAction("LoggedIn");
                 }
                 else

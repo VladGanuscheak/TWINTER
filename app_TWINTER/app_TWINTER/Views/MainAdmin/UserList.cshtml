@@ -1,4 +1,4 @@
-﻿
+﻿@using app_TWINTER.Global_Constraints
 @{
     ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
@@ -20,7 +20,27 @@
             <td>@item.User1</td>
             <td>@item.password</td>
             <td>@item.email</td>
-            <td>@item.Role</td>
+            @switch(item.Role)
+            {
+                case Constants.main_administrator:
+                {
+                    <td>Main Administrator</td>
+                    break;
+                }
+                case Constants.administrator:
+                {
+                    <td>Administrator</td>
+                    break;
+                }
+                case Constants.moderator:
+                {
+                     <td>Moderator</td>
+                     break;
+                }
+                default:
+                    <td>User</td>
+                    break;
+            }
         </tr>
     }
 </table>
