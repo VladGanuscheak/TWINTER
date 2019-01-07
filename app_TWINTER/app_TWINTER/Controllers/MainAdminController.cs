@@ -18,7 +18,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             return View();
         }
@@ -27,7 +27,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.USERS = db.users;
             return View();
@@ -37,7 +37,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.BIOS = db.BIOs;
             return View();
@@ -47,7 +47,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.Media = db.medias;
             return View();
@@ -57,7 +57,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.Polls = db.polls;
             return View();
@@ -67,7 +67,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.STATS = db.polls;
             return View();
@@ -77,7 +77,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.TRANDING = db.trandings;
             return View();
@@ -87,7 +87,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.TWINT = db.twints;
             return View();
@@ -97,7 +97,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.UserBIOList = db.userBIOs;
             return View();
@@ -107,7 +107,7 @@ namespace app_TWINTER.Controllers
         {
             if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.UserTwintList = db.UserTwints;
             return View();

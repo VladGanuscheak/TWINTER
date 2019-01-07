@@ -25,5 +25,10 @@ namespace app_TWINTER.Controllers
         {
             return;
         }*/
+
+        public ActionResult PermissionError()
+        {
+            return View();
+        }
     }
 }
