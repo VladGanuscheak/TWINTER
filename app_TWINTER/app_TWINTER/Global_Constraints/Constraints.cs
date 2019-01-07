@@ -7,6 +7,12 @@ namespace app_TWINTER.Global_Constraints
 {
     public static class Constants
     {
+        // Birthday privacy
+        public const Int16 Public= 0;
+        public const Int16 UserFollowers = 1;
+        public const Int16 FollowingUsers = 2;
+        public const Int16 EachOtherFollowing = 3;
+        public const Int16 OnlyUser = 4;
         // URole
         public const Int16 ordinary_user = 0;
         public const Int16 moderator = 1;
