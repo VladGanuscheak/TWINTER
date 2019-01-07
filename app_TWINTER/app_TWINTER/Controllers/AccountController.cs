@@ -90,11 +90,18 @@ namespace app_TWINTER.Controllers
 
         public ActionResult Logout()
         {
-            if (Session["User"] != null)
+            /*if (Session["User"] != null)
             {
                 Session["User"] = null;
-            }
+            }*/
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult closed()
+        {
+            Session.Clear();
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpPost]

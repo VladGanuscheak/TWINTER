@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Logout";
+    Layout = null;
+}
+
+<html>
+
+    <head>
+        <!-- -->
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <!-- Basic Features-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Centralization-->
+        <link rel="stylesheet" href="~/Content/Vertical_Horizontal_Align_Style.css">
+    </head>
+    
+    <body background="~/Content/Images/logout.jpg">
+        <div class="HorizVert">
+            <input type="button" value="Log out" onclick="@("window.location.href='" + @Url.Action("closed", "Account") + "'");" />
+        </div>
+    </body>
+
+</html>
+
