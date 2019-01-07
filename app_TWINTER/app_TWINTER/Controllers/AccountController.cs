@@ -123,7 +123,6 @@ namespace app_TWINTER.Controllers
                     {
                         case Constants.main_administrator:
                             return RedirectToAction("Index", "MainAdmin");
-                            break;
                         case Constants.administrator:
                             break;
                         case Constants.moderator:

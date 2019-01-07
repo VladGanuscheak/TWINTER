@@ -2,16 +2,32 @@
 
 @{
     ViewBag.Title = "Register";
+    Layout = null;
 }
 
 <h2>Register</h2>
 
+<head>
+    <!-- -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Basic Features-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Centralization-->
+    <link rel="stylesheet" href="~/Content/Vertical_Horizontal_Align_Style.css">
+</head>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
+<html>
+
+<body background="~/Content/Images/login_registration.jpg">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="HorizVert">
         <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -46,12 +62,16 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-    </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        <div>
+            <p>@Html.ActionLink("Terms Of Use", "TermsOfUse", "Special", null, null)</p>
+            <p>@Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Special", null, null)</p>
+        </div>
+
+    </div>
+    }
+</body>
+</html>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

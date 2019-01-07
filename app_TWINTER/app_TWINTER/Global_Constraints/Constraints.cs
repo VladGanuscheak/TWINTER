@@ -25,10 +25,10 @@ namespace app_TWINTER.Global_Constraints
         public const string REQUIRED_FIELD = "This field is required!!!";
         public const string PASSWORDS_CONFIRMATION_FAULT = "The Passwords differs! Confirmation Fault!";
         // Files
-        public const string FILE_TYPE_PDF = "application/pdf";
-        public const string FILE_TYPE_TXT = "application/txt";
-        public const string FILE_PATH_TERMS_OF_USE = "app_TWINTER.Models.Files";
-        public const string FILE_TERMS_OF_USE = "tmp.txt";
+        public const string FILE_PATH_TERMS_OF_USE = @"D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\Content\Files\TERMS_OF_USE.docx";
+        public const string FILE_TERMS_OF_USE = "TERMS_OF_USE.docx";
+        public const string FILE_PATH_PRIVACY_POLICY = @"D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\Content\Files\PRIVACY_POLICY.docx";
+        public const string FILE_PRIVACY_POLICY = "PRIVACY_POLICY.docx";
     }
 
 }

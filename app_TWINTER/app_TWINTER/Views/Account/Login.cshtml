@@ -51,10 +51,14 @@
                     <p>
                         @Html.ActionLink("Account", "Register")
                     </p>
-                    @* Enable this once you have account confirmation enabled for password reset functionality *@
-                }
-            </section>
-        </div>
+                    <div>
+                        <p>@Html.ActionLink("Terms Of Use", "TermsOfUse", "Special", null, null)</p>
+                        <p>@Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Special", null, null)</p>
+                    </div>
+            @* Enable this once you have account confirmation enabled for password reset functionality *@
+        }
+                </section>
+            </div>
     </div>
 
     @section Scripts {

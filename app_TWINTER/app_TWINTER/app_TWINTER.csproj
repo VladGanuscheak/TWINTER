@@ -356,7 +356,6 @@
     <Folder Include="Content\Errors\" />
     <Folder Include="Content\Files\" />
     <Folder Include="Content\Images\" />
-    <Folder Include="Views\SignUp\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
