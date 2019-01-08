@@ -1,8 +1,22 @@
 ﻿
 @{
-    ViewBag.Title = "TrandingList";
+    ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
 }
 
-<h2>TrandingList</h2>
-
+<h2>Tranding List</h2>
+<table align="center">
+    <tr>
+        <td>Tranding_ID</td>
+        <td>Twint_Id</td>
+        <td>HashTag</td>
+    </tr>
+    @foreach (var item in ViewBag.trandings)
+    {
+        <tr>
+            <td>@item.Tranding_Id</td>
+            <td>@item.Twint_Id</td>
+            <td>@item.HashTag</td>
+        </tr>
+    }
+</table>

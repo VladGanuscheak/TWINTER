@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/MainAdminLayout.cshtml";
+}
+
+<h2>Likes List</h2>
+<table align="center">
+    <tr>
+        <td>Twint_ID</td>
+        <td>User_ID</td>
+    </tr>
+    @foreach (var item in ViewBag.likes)
+    {
+        <tr>
+            <td>@item.Twint_Id</td>
+            <td>@item.User_Id</td>
+        </tr>
+    }
+</table>

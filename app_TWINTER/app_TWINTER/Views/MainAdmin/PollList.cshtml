@@ -1,9 +1,22 @@
 ﻿
 @{
-    ViewBag.Title = "PollList";
+    ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
 }
-}
 
-<h2>PollList</h2>
-
+<h2>Poll List</h2>
+<table align="center">
+    <tr>
+        <td>poll_ID</td>
+        <td>Number of variants</td>
+        <td>duration (days)</td>
+    </tr>
+    @foreach (var item in ViewBag.polls)
+    {
+        <tr>
+            <td>@item.poll_Id</td>
+            <td>@item.Nvariants</td>
+            <td>@item.duration</td>
+        </tr>
+    }
+</table>

@@ -29,10 +29,12 @@ namespace app_TWINTER.Models
         public DbSet<UserTwint> UserTwints { get; set; }
 
         public DbSet<Like> likes { get; set; }
+
+        public DbSet<Follow> follows { get; set; }
     }
     
 
-    public class twinterDbInitializer : DropCreateDatabaseAlways<twinterContext>
+    public class twinterDbInitializer : CreateDatabaseIfNotExists<twinterContext>
     {
         protected override void Seed(twinterContext db)
         {

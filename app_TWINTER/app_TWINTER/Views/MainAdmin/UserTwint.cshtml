@@ -1,8 +1,20 @@
 ﻿
 @{
-    ViewBag.Title = "UserTwint";
+    ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
 }
 
-<h2>UserTwint</h2>
-
+<h2>User's Twint List</h2>
+<table align="center">
+    <tr>
+        <td>User_Id</td>
+        <td>Twint_Id</td>
+    </tr>
+    @foreach (var item in ViewBag.UserTwints)
+    {
+        <tr>
+            <td>@item.User_Id</td>
+            <td>@item.Twint_Id</td>
+        </tr>
+    }
+</table>

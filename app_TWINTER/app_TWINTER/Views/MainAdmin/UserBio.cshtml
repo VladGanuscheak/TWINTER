@@ -1,8 +1,20 @@
 ﻿
 @{
-    ViewBag.Title = "UserBio";
+    ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
 }
 
-<h2>UserBio</h2>
-
+<h2>User's BIO List</h2>
+<table align="center">
+    <tr>
+        <td>User_Id</td>
+        <td>Bio_Id</td>
+    </tr>
+    @foreach (var item in ViewBag.userBIOs)
+    {
+        <tr>
+            <td>@item.User_Id</td>
+            <td>@item.BIO_Id</td>
+        </tr>
+    }
+</table>

@@ -1,9 +1,22 @@
 ﻿
 @{
-    ViewBag.Title = "MediaList";
+    ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
 }
-}
 
-<h2>MediaList</h2>
-
+<h2>Media List</h2>
+<table align="center">
+    <tr>
+        <td>media_ID</td>
+        <td>Type</td>
+        <td>URL</td>
+    </tr>
+    @foreach (var item in ViewBag.medias)
+    {
+        <tr>
+            <td>@item.media_Id</td>
+            <td>@item.media_type</td>
+            <td>@item.URL</td>
+        </tr>
+    }
+</table>

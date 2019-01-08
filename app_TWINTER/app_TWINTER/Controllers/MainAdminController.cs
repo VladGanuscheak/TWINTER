@@ -69,7 +69,7 @@ namespace app_TWINTER.Controllers
             {
                 return RedirectToAction("PermissionError", "Special");
             }
-            ViewBag.STATS = db.polls;
+            ViewBag.STATS = db.stats;
             return View();
         }
 
@@ -110,6 +110,26 @@ namespace app_TWINTER.Controllers
                 return RedirectToAction("PermissionError", "Special");
             }
             ViewBag.UserTwintList = db.UserTwints;
+            return View();
+        }
+
+        public ActionResult LikesList()
+        {
+            if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
+            {
+                return RedirectToAction("PermissionError", "Special");
+            }
+            ViewBag.UserTwintList = db.likes;
+            return View();
+        }
+
+        public ActionResult FollowsList()
+        {
+            if (Session["Role"] == null || Int16.Parse(Session["Role"].ToString()) != Constants.main_administrator)
+            {
+                return RedirectToAction("PermissionError", "Special");
+            }
+            ViewBag.UserTwintList = db.follows;
             return View();
         }
     }

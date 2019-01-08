@@ -221,6 +221,7 @@
     </Compile>
     <Compile Include="Global_Constraints\Constraints.cs" />
     <Compile Include="Models\BIO.cs" />
+    <Compile Include="Models\Follow.cs" />
     <Compile Include="Models\Like.cs" />
     <Compile Include="Models\media.cs" />
     <Compile Include="Models\poll.cs" />
@@ -275,6 +276,8 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Views\Special\PermissionError.cshtml" />
     <Content Include="Views\Account\Logout.cshtml" />
+    <Content Include="Views\MainAdmin\LikesList.cshtml" />
+    <Content Include="Views\MainAdmin\FollowsList.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

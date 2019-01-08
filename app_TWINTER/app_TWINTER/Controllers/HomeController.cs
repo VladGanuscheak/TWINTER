@@ -37,6 +37,11 @@ namespace app_TWINTER.Controllers
         twinterContext db = new twinterContext();
         public ActionResult Index(int ID = 1)
         {
+
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.USERS = db.users;
             ViewBag.UserID = ID;
             ViewBag.TRANDINGS = db.trandings;
@@ -57,8 +62,12 @@ namespace app_TWINTER.Controllers
 
         public ActionResult About()
         {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             ViewBag.WorkProcess = new List<Task>() {
-                new Task("User registration", Constants.IN_PROCESS),
+                new Task("User registration", Constants.DONE),
                 new Task("User login/logout", Constants.IN_PROCESS),
                 new Task("User should be able to tweet"),
                 new Task("User should be able to follow other users"),

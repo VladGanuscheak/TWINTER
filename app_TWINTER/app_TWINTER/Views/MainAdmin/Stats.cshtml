@@ -1,8 +1,24 @@
 ﻿
 @{
-    ViewBag.Title = "Stats";
+    ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
 }
 
-<h2>Stats</h2>
-
+<h2>Stats List</h2>
+<table align="center">
+    <tr>
+        <td>poll_Id</td>
+        <td>order_Id</td>
+        <td>result</td>
+        <td>variant</td>
+    </tr>
+    @foreach (var item in ViewBag.stats)
+    {
+        <tr>
+            <td>@item.poll_Id</td>
+            <td>@item.order_Id</td>
+            <td>@item.result</td>
+            <td>@item.variant</td>
+        </tr>
+    }
+</table>
