@@ -27,6 +27,8 @@ namespace app_TWINTER.Models
         public DbSet<UserBIO> userBIOs { get; set; }
 
         public DbSet<UserTwint> UserTwints { get; set; }
+
+        public DbSet<Like> likes { get; set; }
     }
     
 

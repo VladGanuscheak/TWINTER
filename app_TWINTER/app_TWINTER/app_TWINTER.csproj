@@ -221,6 +221,7 @@
     </Compile>
     <Compile Include="Global_Constraints\Constraints.cs" />
     <Compile Include="Models\BIO.cs" />
+    <Compile Include="Models\Like.cs" />
     <Compile Include="Models\media.cs" />
     <Compile Include="Models\poll.cs" />
     <Compile Include="Models\Stats.cs" />

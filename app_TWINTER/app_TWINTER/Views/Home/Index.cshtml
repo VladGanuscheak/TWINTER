@@ -40,18 +40,12 @@
             <tr>
                 <th>TRANDING RIGHT NOW!!!</th>
             </tr>
-            @{ foreach (var tr in ViewBag.Iterable)
+            @{ foreach (var tr in ViewBag.TRANDINGS)
                   {
                       <tr>
-                          <td>@tr</td>
+                          <td>@tr.HashTag</td>
                       </tr>
                   }
-                /*foreach(var item in ViewBag.Exceptions)
-                {
-                    <tr>
-                        <td>@item</td>
-                    </tr>
-                }*/
             }
         </table>
     </div>
