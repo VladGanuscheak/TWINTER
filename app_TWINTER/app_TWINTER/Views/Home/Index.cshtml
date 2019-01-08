@@ -55,7 +55,16 @@
     <div class="brd" align="center">
         <table>
             <tr>
-                <th>My Twints!!</th>
+                @{
+                    if (Session["UserId"].ToString() == ViewBag.UserId.ToString())
+                    {
+                        <th>My Twints!!</th>
+                    }
+                    else
+                    {
+                        <th>@ViewBag.UserNameCurrent's Twints!!</th>
+                    }
+                }
             </tr>
             @{ foreach (var tr in ViewBag.MyTwints)
                 {
@@ -65,10 +74,6 @@
                 }
             }
         </table>
-    </div>
-
-    <div>
-        <br />End.
     </div>
 
 </body>

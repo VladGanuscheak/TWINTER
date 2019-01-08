@@ -51,6 +51,8 @@ namespace app_TWINTER.Controllers
             foreach (var twId in TwintID) MyTwints.Add(db.twints.Where(t => t.Twint_Id == twId).FirstOrDefault());
             ViewBag.MyTwints = MyTwints;
             //
+            ViewBag.UserNameCurrent = db.users.Where(u => u.User_Id == ID).Select(u => u.User1).FirstOrDefault();
+            //
             ViewBag.BIO = db.BIOs;
             ViewBag.media = db.medias;
             ViewBag.poll = db.polls;
