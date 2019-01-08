@@ -29,8 +29,8 @@
     </div>
 
     <!-- User's image (ordinary user)-->
-    <div class="brd" >
-        <img src="~/Content/RolesDefault/user_default.png" alt="ordinary user" align="left" width="100%" height="100%  />
+    <div class="brd">
+        <img src="~/Content/RolesDefault/user_default.png" alt="ordinary user" align="left" width="100%" height="100%   />
     </div>
 
     <hr />
@@ -41,16 +41,31 @@
                 <th>TRANDING RIGHT NOW!!!</th>
             </tr>
             @{ foreach (var tr in ViewBag.TRANDINGS)
-                  {
-                      <tr>
-                          <td>@tr.HashTag</td>
-                      </tr>
-                  }
+                {
+                    <tr>
+                        <td>@tr.HashTag</td>
+                    </tr>
+                }
             }
         </table>
     </div>
 
     <hr />
+
+    <div class="brd" align="center">
+        <table>
+            <tr>
+                <th>My Twints!!</th>
+            </tr>
+            @{ foreach (var tr in ViewBag.MyTwints)
+                {
+                    <tr>
+                        <td>@tr.msg</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
 
     <div>
         <br />End.

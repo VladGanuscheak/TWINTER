@@ -31,7 +31,16 @@
             <a class="navbar-brand" href="/">TWINTER application</a>
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    @{
+                        if (Session["UserId"] == null)
+                        {
+                            Html.ActionLink("Forbidden", "Special", "PermissionError", null, null);
+                        }
+                        else
+                        {
+                            <li class="nav-item">@Html.ActionLink("Home", "Home", "Index", new { ID = Session["UserId"].ToString() }, null)</li>
+                        }
+                    }
                     <li class="nav-item"><a href="/Home/About" class="nav-link">About</a></li>
                 </ul>
 

@@ -35,23 +35,17 @@ namespace app_TWINTER.Controllers
     public class HomeController : Controller
     {
         twinterContext db = new twinterContext();
-        public ActionResult Index()
+        public ActionResult Index(int ID = 1)
         {
             ViewBag.USERS = db.users;
-            //
-            /*string sqlString = "SELECT DISTINCT HashTag " +
-                               "FROM db.Trandings AS tr " +
-                               "GROUP BY tr.HashTag ";
-
-            ViewBag.TRANDINGS = db.Database.SqlQuery<string>(sqlString, db.trandings).ToList();*/
-
-            /*IObjectContextAdapter ctx = null;
-            var objctx = (ctx as IObjectContextAdapter).ObjectContext;
-
-            ViewBag.TRANDINGS = objctx.CreateQuery<Trandings>(sqlString).ToList();*/
-            //
-            //ViewBag.TRANDINGS = db.trandings.GroupBy(tr => tr.HashTag).OrderBy(db.trandings.)
+            ViewBag.UserID = ID;
             ViewBag.TRANDINGS = db.trandings;
+            // My Twints
+            var TwintID = db.UserTwints.Where(UT => UT.User_Id == ID).Select(UT => UT.Twint_Id).ToList();
+            List<Twint> MyTwints = new List<Twint>();
+            foreach (var twId in TwintID) MyTwints.Add(db.twints.Where(t => t.Twint_Id == twId).FirstOrDefault());
+            ViewBag.MyTwints = MyTwints;
+            //
             ViewBag.BIO = db.BIOs;
             ViewBag.media = db.medias;
             ViewBag.poll = db.polls;
