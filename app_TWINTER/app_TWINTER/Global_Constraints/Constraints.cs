@@ -7,7 +7,7 @@ namespace app_TWINTER.Global_Constraints
 {
     public static class Constants
     {
-        // Birthday privacy
+        // Twints Visibility & Birthday privacy
         public const Int16 Public= 0;
         public const Int16 UserFollowers = 1;
         public const Int16 FollowingUsers = 2;

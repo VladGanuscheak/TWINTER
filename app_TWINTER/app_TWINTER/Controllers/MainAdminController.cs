@@ -119,7 +119,7 @@ namespace app_TWINTER.Controllers
             {
                 return RedirectToAction("PermissionError", "Special");
             }
-            ViewBag.UserTwintList = db.likes;
+            ViewBag.LikesList = db.likes;
             return View();
         }
 
@@ -129,7 +129,7 @@ namespace app_TWINTER.Controllers
             {
                 return RedirectToAction("PermissionError", "Special");
             }
-            ViewBag.UserTwintList = db.follows;
+            ViewBag.FollowsList = db.follows;
             return View();
         }
     }

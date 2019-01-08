@@ -490,3 +490,6 @@ D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\x86\Microsoft.VC90.CRT\Microsoft.V
 D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\EntityFramework.SqlServerCompact.dll
 D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\System.Data.SqlServerCe.dll
 D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\EntityFramework.SqlServerCompact.xml
+D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\obj\Debug\app_TWINTER.Migrations.InitialCreate.resources
+D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\obj\Debug\app_TWINTER.csproj.GenerateResource.cache
+D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\obj\Debug\app_TWINTER.Migrations.UPD.resources

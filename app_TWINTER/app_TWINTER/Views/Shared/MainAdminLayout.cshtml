@@ -26,7 +26,18 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item"><a href="/MainAdmin/Index" class="nav-link">Home</a></li>
+
+                    @{
+                        if (Session["UserId"] == null)
+                        {
+                            Html.ActionLink("Forbidden", "PermissionError", "Special", null, null);
+                        }
+                        else
+                        {
+                            <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { ID = Session["UserId"].ToString() }, null)</li>
+                        }
+                    }
+
                     <li class="nav-item"><a href="/MainAdmin/UserList" class="nav-link">User_List</a></li>
                     <li class="nav-item"><a href="/MainAdmin/BIOList" class="nav-link">BIO_List</a></li>
                     <li class="nav-item"><a href="/MainAdmin/MediaList" class="nav-link">Media_List</a></li>
@@ -34,14 +45,24 @@
                     <li class="nav-item"><a href="/MainAdmin/Stats" class="nav-link">Stats</a></li>
                     <li class="nav-item"><a href="/MainAdmin/TrandingList" class="nav-link">Tranding_List</a></li>
                     <li class="nav-item"><a href="/MainAdmin/TwintList" class="nav-link">Twint_List</a></li>
-                    <li class="nav-item"><a href="/MainAdmin/TrandingList" class="nav-link">Tranding_List</a></li>
                     <li class="nav-item"><a href="/MainAdmin/UserBio" class="nav-link">UserBio</a></li>
                     <li class="nav-item"><a href="/MainAdmin/UserTwint" class="nav-link">UserTwint</a></li>
+
+                    <li class="nav-item"><a href="/MainAdmin/FollowsList" class="nav-link">Follows_List</a></li>
+                    <li class="nav-item"><a href="/MainAdmin/LikesList" class="nav-link">Likes_List</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right mr-auto">
-                    <li class="nav-item"><a href="/Account/Login" id="registerLink" class="nav-link">Log In</a></li>
-                    <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Sign Up</a></li>
+                    @{ if (Session["User"] == null)
+                        {
+                            <li class="nav-item"><a href="/Account/Login" id="registerLink" class="nav-link">Log In</a></li>
+                            <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Sign Up</a></li>
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a href="/Account/Logout" id="registerLink" class="nav-link">log Out</a></li>
+                        }
+                    }
                 </ul>
 
             </div>

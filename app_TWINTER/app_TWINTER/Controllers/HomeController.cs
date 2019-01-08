@@ -68,7 +68,7 @@ namespace app_TWINTER.Controllers
             }
             ViewBag.WorkProcess = new List<Task>() {
                 new Task("User registration", Constants.DONE),
-                new Task("User login/logout", Constants.IN_PROCESS),
+                new Task("User login/logout", Constants.DONE),
                 new Task("User should be able to tweet"),
                 new Task("User should be able to follow other users"),
                 new Task("User should see tweets from users he followed"),

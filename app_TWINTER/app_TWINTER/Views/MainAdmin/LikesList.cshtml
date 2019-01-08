@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "UserList";
+    ViewBag.Title = "LikesList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
 }
 
@@ -10,7 +10,7 @@
         <td>Twint_ID</td>
         <td>User_ID</td>
     </tr>
-    @foreach (var item in ViewBag.likes)
+    @foreach (var item in ViewBag.LikesList)
     {
         <tr>
             <td>@item.Twint_Id</td>

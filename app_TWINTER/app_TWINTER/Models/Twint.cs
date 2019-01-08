@@ -26,8 +26,11 @@ namespace app_TWINTER.Models
 
         public Nullable<int> poll_Id { get; set; }
 
+        public Int16 TwintVisibility { get; set; }
+
         public Twint()
         {
+            TwintVisibility = Constants.Public;
             msg = Location = "-";
         }
     }

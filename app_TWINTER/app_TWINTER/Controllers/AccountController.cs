@@ -85,7 +85,7 @@ namespace app_TWINTER.Controllers
                 Session["User"] = null;
                 Session.Clear();
             }
-            return View();
+            return RedirectToAction("Login");
         }
 
         [HttpPost]

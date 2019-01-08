@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "UserList";
+    ViewBag.Title = "MediaList";
     Layout = "~/Views/Shared/MainAdminLayout.cshtml";
 }
 
@@ -11,7 +11,7 @@
         <td>Type</td>
         <td>URL</td>
     </tr>
-    @foreach (var item in ViewBag.medias)
+    @foreach (var item in ViewBag.Media)
     {
         <tr>
             <td>@item.media_Id</td>

@@ -220,6 +220,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global_Constraints\Constraints.cs" />
+    <Compile Include="Migrations\201901081029228_InitialCreate.cs" />
+    <Compile Include="Migrations\201901081029228_InitialCreate.Designer.cs">
+      <DependentUpon>201901081029228_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081231207_UPD.cs" />
+    <Compile Include="Migrations\201901081231207_UPD.Designer.cs">
+      <DependentUpon>201901081231207_UPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BIO.cs" />
     <Compile Include="Models\Follow.cs" />
     <Compile Include="Models\Like.cs" />
@@ -372,6 +381,14 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901081029228_InitialCreate.resx">
+      <DependentUpon>201901081029228_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081231207_UPD.resx">
+      <DependentUpon>201901081231207_UPD.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
