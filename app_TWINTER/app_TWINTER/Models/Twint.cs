@@ -15,23 +15,26 @@ namespace app_TWINTER.Models
         public int Twint_Id { get; set; }
 
         [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
-        [StringLength(300, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
+        [StringLength(300, MinimumLength = 1, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string msg { get; set; }
 
         [Required(ErrorMessage = Constants.REQUIRED_FIELD)]
-        [StringLength(250, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
+        [StringLength(250, MinimumLength = 1, ErrorMessage = Constants.TOO_LONG_DESCRIPTION)]
         public string Location { get; set; }
 
         public Nullable<int> media_Id { get; set; }
 
         public Nullable<int> poll_Id { get; set; }
-
+        
+        [Required]
         public Int16 TwintVisibility { get; set; }
 
         public Twint()
         {
             TwintVisibility = Constants.Public;
-            msg = Location = "-";
+
+            media_Id = null;
+            poll_Id = null;
         }
     }
 }

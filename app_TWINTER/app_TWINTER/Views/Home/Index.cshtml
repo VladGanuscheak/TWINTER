@@ -30,7 +30,7 @@
 
     <!-- User's image (ordinary user)-->
     <div class="brd">
-        <img src="~/Content/RolesDefault/user_default.png" alt="ordinary user" align="left" width="100%" height="100%   />
+        <img src="~/Content/RolesDefault/user_default.png" alt="ordinary user" align="left" width="100%" height="100%      />
     </div>
 
     <hr />
@@ -66,15 +66,34 @@
                     }
                 }
             </tr>
-            @{ foreach (var tr in ViewBag.MyTwints)
+            @{ if (ViewBag.MyTwints != null)
                 {
-                    <tr>
-                        <td>@tr.msg</td>
-                    </tr>
+                    foreach (var tr in ViewBag.MyTwints)
+                    {
+                        <tr>
+                            <td>@tr.msg</td>
+                        </tr>
+                    }
                 }
             }
         </table>
     </div>
+    @{ if (Session["UserId"].ToString() == ViewBag.UserId.ToString())
+        {
 
+        }
+        else
+        {
+            <p>
+                @Html.ActionLink("Follow", "Follow", "Home", new { ID = ViewBag.UserID.ToString() }, null);
+            </p>
+            <p>
+                @Html.ActionLink("Unfollow", "Unfollow", "Home", new { ID = ViewBag.UserID.ToString() }, null);
+            </p>
+        }
+    }
+    <div>
+
+    </div>
 </body>
 </html>

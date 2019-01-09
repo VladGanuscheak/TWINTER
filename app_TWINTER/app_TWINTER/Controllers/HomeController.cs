@@ -85,5 +85,88 @@ namespace app_TWINTER.Controllers
             };
             return View();
         }
+
+        public ActionResult DoTwint()
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            return View();//View(new Twint());
+        }
+
+        [HttpPost]
+        public ActionResult DoTwint(Twint input)
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if (ModelState.IsValid)
+            {
+                //
+                db.twints.Add(input);
+                db.SaveChanges();
+                var LastTwintId = db.twints.Select(t => t.Twint_Id).Max();
+                db.UserTwints.Add(new UserTwint { User_Id = Int32.Parse(Session["UserId"].ToString()), Twint_Id = LastTwintId });
+                db.SaveChanges();
+                //
+                ModelState.Clear();
+                //
+                return RedirectToAction("Index/" + Session["UserId"].ToString(), "Home");
+            }
+            return View();
+        }
+
+        // Need to test last two functionalities!
+
+        public ActionResult Follow(int ID = 1)
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            if (Int32.Parse(Session["UserId"].ToString()) == ID)
+            {
+                return RedirectToAction("Index/" + ID.ToString(), "Home");
+            }
+
+            int MyId = Int32.Parse(Session["UserId"].ToString());
+            var Following = db.follows.Where(fo => fo.Follower == MyId && fo.Following == ID).Select(f => f.Follower);
+            if (Following.Count() < 1)
+            {
+                db.follows.Add(new Follow { Follower = MyId, Following = ID });
+                db.SaveChanges();
+                ViewBag.UserFollowing = db.users.Where(u => u.User_Id == ID).Select(u => u.User1).FirstOrDefault();
+                return View();
+            }
+            return RedirectToAction("Index/" + ID.ToString(), "Home");
+        }
+
+        public ActionResult Unfollow(int ID = 1)
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            if (Int32.Parse(Session["UserId"].ToString()) == ID)
+            {
+                return RedirectToAction("Index/" + ID.ToString(), "Home");
+            }
+
+            int MyId = Int32.Parse(Session["UserId"].ToString());
+            var Following = db.follows.Where(fo => fo.Follower == MyId && fo.Following == ID);
+
+            if (Following.Count() > 0)
+            {
+                db.follows.Remove(Following.First());
+                db.SaveChanges();
+                ViewBag.UserUNFollowing = db.users.Where(u => u.User_Id == ID).Select(u => u.User1).FirstOrDefault();
+                return View();
+            }
+            return RedirectToAction("Index/" + ID.ToString(), "Home");
+        }
     }
 }
