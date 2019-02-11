@@ -1,17 +1,16 @@
 ﻿@model app_TWINTER.Models.Twint
 
 @{
-    ViewBag.Title = "DoTwint";
+    ViewBag.Title = "Twint";
 }
 
-<h2>DoTwint</h2>
+<h2>Twint</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Twint</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -43,9 +42,13 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
+
+        <div>
+            <p><b>Public = 0</b></p>
+            <p><b>UserFollowers = 1</b></p>
+            <p><b>FollowingUsers = 2</b></p>
+            <p><b>EachOtherFollowing = 3</b></p>
+            <p><b>OnlyUser = 4</b></p>
+        </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

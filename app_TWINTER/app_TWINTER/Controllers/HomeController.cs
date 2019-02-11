@@ -168,5 +168,22 @@ namespace app_TWINTER.Controllers
             }
             return RedirectToAction("Index/" + ID.ToString(), "Home");
         }
+
+        public ActionResult Followers(int ID = 1)
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var followersId = db.follows.Where(f => f.Following == ID).Select(fo => fo.Follower).ToList();
+            List<string> tmp = new List<string>();
+            foreach(var item in followersId)
+            {
+                tmp.Add(db.users.Where(u => u.User_Id == item).Select(u => u.User1).FirstOrDefault());
+            }
+            ViewBag.FOLLOWERS = tmp;
+            return View();
+        }
     }
 }

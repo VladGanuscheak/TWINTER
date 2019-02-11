@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Followers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Followers</h2>
+
+
+<table>
+    <tr>
+        <td>Followers</td>
+    </tr>
+    @if (ViewBag.FOLLOWERS != null)
+    {
+        @foreach (var item in ViewBag.FOLLOWERS)
+        {
+            <tr>
+                <td>@item</td>
+            </tr>
+            }
+        }
+    </table>
+
