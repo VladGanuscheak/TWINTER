@@ -493,3 +493,7 @@ D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\EntityFramework.SqlServerCompact.x
 D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\obj\Debug\app_TWINTER.Migrations.InitialCreate.resources
 D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\obj\Debug\app_TWINTER.csproj.GenerateResource.cache
 D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\obj\Debug\app_TWINTER.Migrations.UPD.resources
+D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\WebDriver.dll
+D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\WebDriver.Support.dll
+D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\WebDriver.xml
+D:\GIThub\TWINTER\app_TWINTER\app_TWINTER\bin\WebDriver.Support.xml

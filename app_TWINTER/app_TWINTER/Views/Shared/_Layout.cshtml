@@ -41,19 +41,19 @@
                             <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { ID = Session["UserId"].ToString() }, null)</li>
                         }
                     }
-                    <li class="nav-item"><a href="/Home/About" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="/Home/DoTwint" class="nav-link">Do Twint</a></li>
+                    <li class="nav-item" id="About"><a href="/Home/About" class="nav-link">About</a></li>
+                    <li class="nav-item" id="DoTwint"><a href="/Home/DoTwint" class="nav-link">Do Twint</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right mr-auto">
                     @{ if (Session["User"] == null)
                         {
-                            <li class="nav-item"><a href="/Account/Login" id="registerLink" class="nav-link">Log In</a></li>
-                            <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Sign Up</a></li>
+                            <li class="nav-item" id="Login"><a href="/Account/Login" id="registerLink" class="nav-link">Log In</a></li>
+                            <li class="nav-item" id="Register"><a href="/Account/Register" id="registerLink" class="nav-link">Sign Up</a></li>
                         }
                         else
                         {
-                            <li class="nav-item"><a href="/Account/Logout" id="registerLink" class="nav-link">log Out</a></li>
+                            <li class="nav-item" id="Logout"><a href="/Account/Logout" id="registerLink" class="nav-link">log Out</a></li>
                         }
                     }
                 </ul>
